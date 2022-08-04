@@ -43,6 +43,13 @@
 			<button id="btn_Create_Image">Create Image</button>
 			<a id="download">Download</a>
 		</div>
+		<div class="right-navbar">
+			<ul class="sidebar">
+				<li><img src="assets/icons/cursor_default.svg" alt=""></li>
+				<li><img src="assets/icons/cursor_move.svg" alt=""></li>
+				<li><img src="assets/icons/ruler.svg" alt=""></li>
+			</ul>
+		</div>
 	</div>
 </body>
 

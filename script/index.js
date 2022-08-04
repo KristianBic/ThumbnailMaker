@@ -1,3 +1,11 @@
+//print as object
+// console.log({
+//     topVal
+// });
+
+
+
+
 let currentTextNumber = 2;
 
 
@@ -55,6 +63,7 @@ $('*[data-movable="true"]').on("mousedown", (event) => {
 });
 
 
+//check if the coordinates are within canvas. If not, then dont't place them inside
 function onDrag({
     movementX,
     movementY,
@@ -66,7 +75,6 @@ function onDrag({
 
     target.style.left = `${leftVal + movementX}px`;
     target.style.top = `${topVal + movementY}px`;
-
 }
 
 function movingElements(event) {
