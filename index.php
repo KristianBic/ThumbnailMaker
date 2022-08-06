@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="style/style.css" />
 	<link rel="stylesheet" href="style/style_home.css" />
+	<link rel="stylesheet" href="style/style_ruler.css" />
 	<link rel="icon" type="image/x-icon" href="../images/favicon.svg" />
 	<script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<script defer src="library/html2canvas.min.js"></script>
@@ -35,19 +36,23 @@
 			<button onclick="addNewTextLine()"><img src="assets/icons/addLine.svg" alt="">Add Text Line</button>
 		</div>
 		<div class="canva-container">
-			<h6>Canva Preview</h6>
-			<div class="canva" id="canvas_id">
-				<p data-movable="true" data-text="Text line 1" class="text-canva">Text 1</p>
-				<p data-movable="true" data-text="Text line 2" class="text-canva">Text 2</p>
+			<?php include 'pages/ruler.php' ?>
+			<div class="canva-container-content">
+				<h6>Canva Preview</h6>
+				<div class="canva" id="canvas_id">
+					<p data-movable="true" data-selected="false" data-text="Text line 1" class="text-canva">Text 1</p>
+					<p data-movable="true" data-selected="false" data-text="Text line 2" id="text2" class="text-canva">Text 2</p>
+				</div>
+				<button id="btn_Create_Image">Create Image</button>
+				<a id="download">Download</a>
 			</div>
-			<button id="btn_Create_Image">Create Image</button>
-			<a id="download">Download</a>
 		</div>
 		<div class="right-navbar">
 			<ul class="sidebar">
-				<li><img src="assets/icons/cursor_default.svg" alt=""></li>
-				<li><img src="assets/icons/cursor_move.svg" alt=""></li>
-				<li><img src="assets/icons/ruler.svg" alt=""></li>
+				<li><label for="show-ruler">
+						<input type="checkbox" name="show-ruler" class="show-ruler" id="show_ruler" value="show-ruler" />
+						<?php include 'assets/icons/ruler.svg' ?>
+					</label></li>
 			</ul>
 		</div>
 	</div>

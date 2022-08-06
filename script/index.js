@@ -5,7 +5,6 @@
 
 
 
-
 let currentTextNumber = 2;
 
 
@@ -79,14 +78,43 @@ function onDrag({
 
 function movingElements(event) {
     const element = event.target;
-    element.style.position = "absolute";
     element.classList.add("active");
-    element.addEventListener("mousemove", onDrag);
+    if (element.getAttribute("data-selected") === "true") {
+        element.style.position = "absolute";
 
-    //instead of document, we can use 'element', however there is a bug where when we "mouseUp" outside the 'element', listener mouseup doesn't process
-    document.addEventListener("mouseup", function mouseUpList() {
-        element.classList.remove("active");
-        element.removeEventListener("mousemove", onDrag);
-        document.removeEventListener("mouseup", mouseUpList);
-    });
+        element.addEventListener("mousemove", onDrag);
+
+        //instead of document, we can use 'element', however there is a bug where when we "mouseUp" outside the 'element', listener mouseup doesn't process
+        document.addEventListener("mouseup", function mouseUpList() {
+            element.classList.remove("active");
+            element.removeEventListener("mousemove", onDrag);
+            document.removeEventListener("mouseup", mouseUpList);
+            element.dataset.selected = 'false';
+        });
+    } else {
+        element.dataset.selected = 'true';
+    }
 };
+
+
+
+$(".ruler").hide();
+$("#show_ruler").on("click", () => {
+    if ($("#show_ruler").prop("checked") == true) {
+        $(".ruler").fadeIn();
+        $("#show_ruler").closest("li").css({
+            "background-color": "#8B8787",
+            "transition": "all 0.5s ease-out",
+        });
+        $("#show_ruler").closest("li").find("path").css({
+            "fill": "#fff",
+        });
+
+    } else if ($("#show_ruler").prop("checked") == false) {
+        $(".ruler").fadeOut();
+        $("#show_ruler").closest("li").css("background-color", "transparent");
+        $("#show_ruler").closest("li").find("path").css({
+            "fill": "#8B8787",
+        });
+    }
+});
