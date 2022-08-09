@@ -118,3 +118,33 @@ $("#show_ruler").on("click", () => {
         });
     }
 });
+
+$(".color-box").on("click", (event) => {
+    const backgroundColor = event.target.style.backgroundColor;
+    $('#canvas_id').css('background-color', backgroundColor);
+    $("#hex_input").attr("value", rgbToHex(backgroundColor).substring(1));
+});
+
+$("#hex_input").on("input", (event) => {
+    $('#canvas_id').css('background-color', '#' + event.target.value);
+});
+
+$("#color_input").on("input", () => {
+    $('#canvas_id').css('background-color', $('#color_input').val());
+    $("#hex_input").attr("value", $('#color_input').val().substring(1));
+    $("#color_input").attr("data-tooltip", $('#color_input').val());
+});
+
+function rgbToHex(col) {
+    if (col.charAt(0) == 'r') {
+        col = col.replace('rgb(', '').replace(')', '').split(',');
+        var r = parseInt(col[0], 10).toString(16);
+        var g = parseInt(col[1], 10).toString(16);
+        var b = parseInt(col[2], 10).toString(16);
+        r = r.length == 1 ? '0' + r : r;
+        g = g.length == 1 ? '0' + g : g;
+        b = b.length == 1 ? '0' + b : b;
+        var colHex = '#' + r + g + b;
+        return colHex;
+    }
+}

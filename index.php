@@ -26,14 +26,42 @@
 			</ul>
 		</div>
 		<div class="sidebar-content">
-			<h2>TEXT OPTIONS</h2>
-			<div id="text_inputs">
-				<p data-text="Text line 1">Text Line 1</p>
-				<input class="text-Input" type="text" placeholder="Enter Text" data-text="Text line 1" oninput="changeText()">
-				<p data-text="Text line 2">Text Line 2</p>
-				<input class="text-Input" type="text" placeholder="Enter Text" data-text="Text line 2" oninput="changeText()">
+			<div class="sidebar-content-text" style="display: none;">
+				<h2>TEXT OPTIONS</h2>
+				<div id="text_inputs">
+					<p data-text="Text line 1">Text Line 1</p>
+					<input class="text-Input" type="text" placeholder="Enter Text" data-text="Text line 1" oninput="changeText()">
+					<p data-text="Text line 2">Text Line 2</p>
+					<input class="text-Input" type="text" placeholder="Enter Text" data-text="Text line 2" oninput="changeText()">
+				</div>
+				<button onclick="addNewTextLine()"><img src="assets/icons/addLine.svg" alt="">Add Text Line</button>
 			</div>
-			<button onclick="addNewTextLine()"><img src="assets/icons/addLine.svg" alt="">Add Text Line</button>
+			<div class="sidebar-content-text">
+				<h2>COLOR OPTIONS</h2>
+				<div id="text_inputs">
+					<p>Background Color</p>
+					<div class="color-container">
+						<div data-tooltip="#FE2712" class="color-box" style="background-color: #fe2712"></div>
+						<div data-tooltip="#FC600A" class="color-box" style="background-color: #FC600A"></div>
+						<div data-tooltip="#FB9902" class="color-box" style="background-color: #FB9902"></div>
+						<div data-tooltip="#FCCC1A" class="color-box" style="background-color: #FCCC1A"></div>
+						<div data-tooltip="#FEFE33" class="color-box" style="background-color: #FEFE33"></div>
+						<div data-tooltip="#B2D732" class="color-box" style="background-color: #B2D732"></div>
+						<div data-tooltip="#66B032" class="color-box" style="background-color: #66B032"></div>
+						<div data-tooltip="#347C98" class="color-box" style="background-color: #347C98"></div>
+						<div data-tooltip="#0247FE" class="color-box" style="background-color: #0247FE"></div>
+						<div data-tooltip="#4424D6" class="color-box" style="background-color: #4424D6"></div>
+						<div data-tooltip="#8601AF" class="color-box" style="background-color: #8601AF"></div>
+						<div data-tooltip="#C21460" class="color-box" style="background-color: #C21460"></div>
+						<div data-tooltip="#ffffff" class="color-box" style="background-color: #ffffff; border: 1px solid #e0e0e0"></div>
+						<div data-tooltip="#000000" class="color-box" style="background-color: #000000"></div>
+						<input data-tooltip="#000000" id="color_input" class="color-box color-picker" type="color" placeholder="#">
+						<div class="color-box hex-box" style="background-color: #e0e0e0; pointer-events: none;">#</div>
+						<input id="hex_input" maxlength="6" class="hex-color text-Input" type="text" placeholder="Enter Hex">
+					</div>
+					<p data-text="Text line 2">Text Color</p>
+				</div>
+			</div>
 		</div>
 		<div class="canva-container">
 			<?php include 'pages/ruler.php' ?>
